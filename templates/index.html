@@ -3,9 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FormatFlow | File Converter</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="FormatFlow is a simple web-based image converter for PNG, JPG and WEBP files."
+    >
+
+    <title>FormatFlow | Image Converter</title>
 
     <link
         rel="stylesheet"
@@ -13,30 +22,82 @@
     >
 </head>
 
+
 <body>
+
+    <!-- ---------- Header ---------- -->
 
     <header class="site-header">
 
-        <h1>FormatFlow</h1>
+        <div class="brand">
+
+            <div class="brand-icon">
+                ↔
+            </div>
+
+            <h1>FormatFlow</h1>
+
+        </div>
 
         <p>
-            Convert image files quickly from your browser.
+            Simple file conversion. No unnecessary steps.
         </p>
 
     </header>
 
 
+    <!-- ---------- Main Content ---------- -->
+
     <main>
 
         <section class="converter">
 
-            <h2>Convert an Image</h2>
+            <div class="converter-heading">
 
-            <p class="converter-intro">
-                Upload a PNG, JPG or WEBP image and choose
-                the format you want to convert it to.
-            </p>
+                <span class="converter-label">
+                    IMAGE CONVERTER
+                </span>
 
+                <h2>
+                    Convert your image
+                </h2>
+
+                <p class="converter-intro">
+                    Drop an image below and convert it between
+                    PNG, JPG and WEBP in seconds.
+                </p>
+
+            </div>
+
+
+            <!-- ---------- Format Flow ---------- -->
+
+            <div class="format-flow">
+
+                <div class="format-badge">
+                    PNG
+                </div>
+
+                <span class="flow-arrow">
+                    ↔
+                </span>
+
+                <div class="format-badge">
+                    JPG
+                </div>
+
+                <span class="flow-arrow">
+                    ↔
+                </span>
+
+                <div class="format-badge">
+                    WEBP
+                </div>
+
+            </div>
+
+
+            <!-- ---------- Converter Form ---------- -->
 
             <form
                 id="converter-form"
@@ -51,11 +112,15 @@
                 >
 
                     <p class="drop-zone-title">
-                        Drag & Drop your image here
+                        Drop your image here
                     </p>
 
                     <p class="drop-zone-text">
-                        or click to choose a file
+                        or click anywhere to browse
+                    </p>
+
+                    <p class="drop-zone-formats">
+                        PNG · JPG · JPEG · WEBP
                     </p>
 
                     <input
@@ -69,54 +134,107 @@
                 </div>
 
 
+                <!-- Selected File -->
+
                 <div
                     class="file-info"
                     id="file-info"
                 ></div>
 
+
+                <!-- Status / Error Messages -->
+
                 <div
-    class="message"
-    id="message"
-></div>
+                    class="message"
+                    id="message"
+                    role="status"
+                    aria-live="polite"
+                ></div>
 
 
-                <label for="output-format">
-                    Convert To
-                </label>
+                <!-- Output Format -->
 
-                <select
-                    id="output-format"
-                    name="output_format"
-                >
-                    <option value="jpg">
-                        JPG
-                    </option>
+                <div class="format-selection">
 
-                    <option value="png">
-                        PNG
-                    </option>
+                    <label for="output-format">
+                        Output format
+                    </label>
 
-                    <option value="webp">
-                        WEBP
-                    </option>
-                </select>
+                    <select
+                        id="output-format"
+                        name="output_format"
+                    >
 
+                        <option value="jpg">
+                            JPG — JPEG Image
+                        </option>
+
+                        <option value="png">
+                            PNG — Portable Network Graphics
+                        </option>
+
+                        <option value="webp">
+                            WEBP — WebP Image
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Convert -->
 
                 <button type="submit">
-                    Convert File
+
+                    <span>
+                        Convert File
+                    </span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
                 </button>
 
             </form>
+
+
+            <!-- ---------- Privacy Note ---------- -->
+
+            <div class="privacy-note">
+
+                <span class="privacy-icon">
+                    ◇
+                </span>
+
+                <div>
+
+                    <strong>
+                        Processed in memory
+                    </strong>
+
+                    <p>
+                        Uploaded images are processed for conversion
+                        and are not permanently stored by FormatFlow.
+                    </p>
+
+                </div>
+
+            </div>
 
         </section>
 
     </main>
 
 
+    <!-- ---------- Footer ---------- -->
+
     <footer>
 
         <p>
-            FormatFlow — File Conversion Made Simple
+            FormatFlow
+            <span>·</span>
+            Built with Python, Flask & JavaScript
         </p>
 
     </footer>
