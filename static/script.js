@@ -3,6 +3,7 @@ const fileInput = document.querySelector("#file-input");
 const fileInfo = document.querySelector("#file-info");
 const dropZone = document.querySelector("#drop-zone");
 const submitButton = form.querySelector("button");
+const buttonText = submitButton.querySelector("span:first-child");
 const message = document.querySelector("#message");
 
 
@@ -56,13 +57,17 @@ function displayFile(file) {
 
 // ---------- Normal File Selection ----------
 
-fileInput.addEventListener("change", () => {
+fileInput.addEventListener(
+    "change",
+    () => {
 
-    const file = fileInput.files[0];
+        const file =
+            fileInput.files[0];
 
-    displayFile(file);
+        displayFile(file);
 
-});
+    }
+);
 
 
 // ---------- Drag Over ----------
@@ -109,15 +114,22 @@ dropZone.addEventListener(
 
         clearMessage();
 
+
         const files =
             event.dataTransfer.files;
 
+
         if (files.length === 0) {
+
             return;
+
         }
+
 
         const file = files[0];
 
+
+        // ---------- File Type Validation ----------
 
         const allowedTypes = [
             "image/png",
@@ -142,6 +154,8 @@ dropZone.addEventListener(
         }
 
 
+        // ---------- File Size Validation ----------
+
         if (
             file.size >
             20 * 1024 * 1024
@@ -156,6 +170,8 @@ dropZone.addEventListener(
 
         }
 
+
+        // ---------- Add Dropped File to Input ----------
 
         const dataTransfer =
             new DataTransfer();
@@ -187,6 +203,8 @@ form.addEventListener(
             fileInput.files[0];
 
 
+        // ---------- Check File ----------
+
         if (!file) {
 
             showMessage(
@@ -198,6 +216,8 @@ form.addEventListener(
 
         }
 
+
+        // ---------- Check File Size ----------
 
         if (
             file.size >
@@ -214,9 +234,11 @@ form.addEventListener(
         }
 
 
+        // ---------- Conversion Started ----------
+
         submitButton.disabled = true;
 
-        submitButton.textContent =
+        buttonText.textContent =
             "Converting...";
 
 
@@ -225,6 +247,8 @@ form.addEventListener(
 
 
         try {
+
+            // ---------- Send File to Flask ----------
 
             const response =
                 await fetch(
@@ -235,6 +259,8 @@ form.addEventListener(
                     }
                 );
 
+
+            // ---------- Handle Server Error ----------
 
             if (!response.ok) {
 
@@ -247,6 +273,8 @@ form.addEventListener(
 
             }
 
+
+            // ---------- Receive Converted File ----------
 
             const blob =
                 await response.blob();
@@ -262,12 +290,15 @@ form.addEventListener(
                 "converted-file";
 
 
+            // ---------- Find Download Filename ----------
+
             if (disposition) {
 
                 const match =
                     disposition.match(
                         /filename="?([^"]+)"?/
                     );
+
 
                 if (match) {
 
@@ -278,6 +309,8 @@ form.addEventListener(
 
             }
 
+
+            // ---------- Create Download URL ----------
 
             const downloadURL =
                 URL.createObjectURL(
@@ -298,6 +331,8 @@ form.addEventListener(
                 filename;
 
 
+            // ---------- Download File ----------
+
             document.body.appendChild(
                 downloadLink
             );
@@ -312,28 +347,37 @@ form.addEventListener(
             );
 
 
+            // ---------- Success ----------
+
             showMessage(
                 "Conversion complete. Your file has been downloaded.",
                 "success"
             );
 
 
-            submitButton.textContent =
+            buttonText.textContent =
                 "Converted ✓";
 
 
-            setTimeout(() => {
+            // ---------- Reset Button ----------
 
-                submitButton.textContent =
-                    "Convert File";
+            setTimeout(
+                () => {
 
-                submitButton.disabled =
-                    false;
+                    buttonText.textContent =
+                        "Convert File";
 
-            }, 1500);
+                    submitButton.disabled =
+                        false;
+
+                },
+                1500
+            );
 
 
         } catch (error) {
+
+            // ---------- Conversion Failed ----------
 
             showMessage(
                 error.message ||
@@ -342,7 +386,7 @@ form.addEventListener(
             );
 
 
-            submitButton.textContent =
+            buttonText.textContent =
                 "Convert File";
 
             submitButton.disabled =
