@@ -500,3 +500,230 @@ footer {
     }
 
 }
+
+/* ---------- Brand ---------- */
+
+.brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.brand-icon {
+    display: grid;
+    place-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(56, 189, 248, 0.16),
+            rgba(167, 139, 250, 0.16)
+        );
+
+    color: #7dd3fc;
+
+    font-size: 1.5rem;
+}
+
+
+/* ---------- Converter Heading ---------- */
+
+.converter-label {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--primary);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.converter-heading {
+    margin-bottom: 26px;
+}
+
+
+/* ---------- Format Flow ---------- */
+
+.format-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-bottom: 28px;
+}
+
+.format-badge {
+    min-width: 72px;
+
+    padding: 9px 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: rgba(30, 41, 59, 0.65);
+
+    color: #e2e8f0;
+
+    text-align: center;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.flow-arrow {
+    color: var(--primary);
+
+    font-size: 1.1rem;
+}
+
+
+/* ---------- Drop Zone Format Text ---------- */
+
+.drop-zone-formats {
+    margin-top: 16px;
+
+    color: #64748b;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+
+/* ---------- Format Selection ---------- */
+
+.format-selection {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* ---------- Button Layout ---------- */
+
+#converter-form button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.button-arrow {
+    font-size: 1.2rem;
+
+    transition: transform 0.2s ease;
+}
+
+#converter-form button:hover .button-arrow {
+    transform: translateX(4px);
+}
+
+
+/* ---------- Privacy ---------- */
+
+.privacy-note {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+
+    margin-top: 28px;
+    padding-top: 22px;
+
+    border-top: 1px solid var(--border);
+}
+
+.privacy-icon {
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 9px;
+
+    background: rgba(56, 189, 248, 0.08);
+
+    color: var(--primary);
+}
+
+.privacy-note strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #cbd5e1;
+
+    font-size: 0.85rem;
+}
+
+.privacy-note p {
+    color: #64748b;
+
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+
+/* ---------- Footer ---------- */
+
+footer span {
+    margin: 0 7px;
+
+    color: #334155;
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 500px) {
+
+    .brand {
+        gap: 10px;
+    }
+
+    .brand-icon {
+        width: 40px;
+        height: 40px;
+
+        border-radius: 11px;
+    }
+
+    .format-flow {
+        gap: 7px;
+    }
+
+    .format-badge {
+        min-width: 60px;
+
+        padding: 8px 9px;
+
+        font-size: 0.68rem;
+    }
+
+    .flow-arrow {
+        font-size: 0.9rem;
+    }
+
+}
