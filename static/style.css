@@ -1,0 +1,323 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+
+/* ---------- Header ---------- */
+
+.site-header {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.site-header h1 {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.site-header p {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+}
+
+
+/* ---------- Main ---------- */
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+
+/* ---------- Converter ---------- */
+
+.converter {
+    width: 100%;
+    max-width: 650px;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.converter h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.converter-intro {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+
+/* ---------- Form ---------- */
+
+#converter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#converter-form label {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+#file-input,
+#output-format {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    font-size: 1rem;
+}
+
+#file-input:focus,
+#output-format:focus {
+    outline: 2px solid #2563eb;
+    border-color: transparent;
+}
+
+
+/* ---------- Button ---------- */
+
+#converter-form button {
+    margin-top: 18px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                transform 0.2s ease;
+}
+
+#converter-form button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* ---------- Footer ---------- */
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: #64748b;
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 600px) {
+
+    .site-header {
+        padding: 45px 20px;
+    }
+
+    .site-header h1 {
+        font-size: 2.3rem;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
+
+    .converter {
+        padding: 25px;
+    }
+
+}
+/* ---------- File Information ---------- */
+
+.file-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 5px;
+    padding: 12px 14px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+}
+
+.file-info:empty {
+    display: none;
+}
+
+.file-info strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    max-width: 70%;
+}
+
+.file-info span {
+    color: #64748b;
+}
+
+
+/* ---------- Disabled Button ---------- */
+
+#converter-form button:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ---------- Drop Zone ---------- */
+
+.drop-zone {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 190px;
+    padding: 30px;
+
+    border: 2px dashed #94a3b8;
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.drop-zone:hover {
+    border-color: #2563eb;
+    background: #eff6ff;
+}
+
+.drop-zone.drag-over {
+    border-color: #2563eb;
+    background: #dbeafe;
+    transform: scale(1.01);
+}
+
+.drop-zone-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    margin-bottom: 6px;
+}
+
+.drop-zone-text {
+    color: #64748b;
+}
+
+
+/* ---------- Hidden File Input ---------- */
+
+#file-input {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+
+    cursor: pointer;
+}
+
+
+/* ---------- File Information ---------- */
+
+.file-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 14px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+}
+
+.file-info:empty {
+    display: none;
+}
+
+.file-info strong {
+    max-width: 70%;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-info span {
+    color: #64748b;
+}
+
+/* ---------- Messages ---------- */
+
+.message {
+    display: none;
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    font-size: 0.95rem;
+}
+
+.message.success {
+    display: block;
+
+    background: #ecfdf5;
+
+    border: 1px solid #86efac;
+
+    color: #166534;
+}
+
+.message.error {
+    display: block;
+
+    background: #fef2f2;
+
+    border: 1px solid #fca5a5;
+
+    color: #991b1b;
+}

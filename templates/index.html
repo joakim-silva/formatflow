@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FormatFlow | File Converter</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <h1>FormatFlow</h1>
+
+        <p>
+            Convert image files quickly from your browser.
+        </p>
+
+    </header>
+
+
+    <main>
+
+        <section class="converter">
+
+            <h2>Convert an Image</h2>
+
+            <p class="converter-intro">
+                Upload a PNG, JPG or WEBP image and choose
+                the format you want to convert it to.
+            </p>
+
+
+            <form
+                id="converter-form"
+                action="/convert"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <div
+                    class="drop-zone"
+                    id="drop-zone"
+                >
+
+                    <p class="drop-zone-title">
+                        Drag & Drop your image here
+                    </p>
+
+                    <p class="drop-zone-text">
+                        or click to choose a file
+                    </p>
+
+                    <input
+                        type="file"
+                        id="file-input"
+                        name="file"
+                        accept=".png,.jpg,.jpeg,.webp"
+                        required
+                    >
+
+                </div>
+
+
+                <div
+                    class="file-info"
+                    id="file-info"
+                ></div>
+
+                <div
+    class="message"
+    id="message"
+></div>
+
+
+                <label for="output-format">
+                    Convert To
+                </label>
+
+                <select
+                    id="output-format"
+                    name="output_format"
+                >
+                    <option value="jpg">
+                        JPG
+                    </option>
+
+                    <option value="png">
+                        PNG
+                    </option>
+
+                    <option value="webp">
+                        WEBP
+                    </option>
+                </select>
+
+
+                <button type="submit">
+                    Convert File
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            FormatFlow — File Conversion Made Simple
+        </p>
+
+    </footer>
+
+
+    <script
+        src="{{ url_for('static', filename='script.js') }}"
+    ></script>
+
+</body>
+
+</html>
